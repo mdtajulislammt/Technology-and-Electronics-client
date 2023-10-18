@@ -10,6 +10,8 @@ import Home from './Components/Home.jsx';
 import ErrorPage from './ErrorPage';
 import BrandProducts from './Components/BrandProducts';
 import LogIn from './Components/LogIn/LogIn';
+import ProductDetail from './Components/ProductDetail';
+import MyCart from './MyCart/MyCart';
  
 
  const router = createBrowserRouter([
@@ -27,6 +29,16 @@ import LogIn from './Components/LogIn/LogIn';
       path: "/brand/:brandname",
        element:<BrandProducts></BrandProducts>,
        loader: ()=> fetch('http://localhost:5000/brand/products')
+    },
+    {
+      path:"/brand/Apple/:id",
+      element:<ProductDetail></ProductDetail>,
+      loader: ()=> fetch('http://localhost:5000/brand/products')
+    },
+    {
+      path:"/myCart",
+      element:<MyCart></MyCart>,
+     
     },
     {
       path:'/login',

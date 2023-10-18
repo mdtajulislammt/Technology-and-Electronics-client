@@ -1,6 +1,11 @@
+import { Rating } from "@material-tailwind/react";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { Link } from "react-router-dom";
+
 const BrandProduct = ({ products }) => {
   return (
     <div>
+      
       <div className="carousel w-full lg:h-[400px]">
   <div id="slide1" className="carousel-item relative w-full">
   <div className=" absolute ml-5 mt-10 md:ml-20 lg:mt-20">
@@ -39,20 +44,26 @@ const BrandProduct = ({ products }) => {
     </div>
   </div> 
 </div>
+<Link to={"/"} className=" flex items-center gap-3 w-40 bg-[#ff7e00] rounded-md text-white mx-auto mt-4 font-medium p-2 "><AiOutlineArrowLeft/> Go back Home</Link>
      <div className=" grid md:grid-cols-3 lg:grid-cols-4 mx-14 mt-10 gap-5"> 
      {products.map((productItem) => {
         return (
           <>
             <div className="card  bg-[#ff7e00] shadow-xl">
   <figure className="p-4" ><img className=" w-full md:h-32 lg:h-52 rounded-lg" src={productItem.img}  alt={productItem.name} /></figure>
-  <div className="card-body">
-    <h2 className="card-title text-white">{productItem.name}</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <div className="badge badge-outline">Update</div> 
-      <div className="badge badge-outline">Details</div>
-    </div>
+  <div className="p-4 border-2 rounded-xl border-[#ff7e00] bg-white">
+    
+    <h2 className="card-title text-[#ff7e00] text-2xl">{productItem.name}</h2>
+    <h2 className=" text-[#ff7e00] text-lg font-medium">Brand Name :{productItem.brandname}</h2>
+    <p className=" text-xl font-semibold">Price :{productItem.price}</p>
+    <p className=" text-[#ff7e00]">Type :{productItem.type}</p>
+    <p className=" flex items-center gap-3 text-lg font-semibold"> <Rating className="text-[#ff7e00] flex " value={4} /> {productItem.rating}</p>
+    
   </div>
+  <div className="card-actions  justify-between mt-3 ">
+      <Link><button className="bg-[#ff7e00] rounded-lg hover:text-black text-white px-3 p-2 font-semibold">Update</button></Link>
+      <Link to={`/brand/Apple/${productItem._id}`}><button className="bg-[#ff7e00] rounded-lg hover:text-black text-white px-3 p-2 font-semibold ">Details</button></Link>
+    </div>
 </div>
           </>
         );
