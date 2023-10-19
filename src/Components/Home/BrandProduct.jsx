@@ -53,15 +53,15 @@ const BrandProduct = ({ products }) => {
   <figure className="p-4" ><img className=" w-full md:h-32 lg:h-52 rounded-lg" src={productItem.img}  alt={productItem.name} /></figure>
   <div className="p-4 border-2 rounded-xl border-[#ff7e00] bg-white">
     
-    <h2 className="card-title text-[#ff7e00] text-2xl">{productItem.name}</h2>
+    <h2 className="card-title text-[#ff7e00] text-lg">{productItem.name}</h2>
     <h2 className=" text-[#ff7e00] text-lg font-medium">Brand Name :{productItem.brandname}</h2>
-    <p className=" text-xl font-semibold">Price :{productItem.price}</p>
+    <p className=" text-md font-semibold">Price :{productItem.price}</p>
     <p className=" text-[#ff7e00]">Type :{productItem.type}</p>
     <p className=" flex items-center gap-3 text-lg font-semibold"> <Rating className="text-[#ff7e00] flex " value={4} /> {productItem.rating}</p>
     
   </div>
   <div className="card-actions  justify-between mt-3 ">
-      <Link><button className="bg-[#ff7e00] rounded-lg hover:text-black text-white px-3 p-2 font-semibold">Update</button></Link>
+      <Link to={`/brand/products/${productItem._id}`}><button className="bg-[#ff7e00] rounded-lg hover:text-black text-white px-3 p-2 font-semibold">Update</button></Link>
       <Link to={`/brand/Apple/${productItem._id}`}><button className="bg-[#ff7e00] rounded-lg hover:text-black text-white px-3 p-2 font-semibold ">Details</button></Link>
     </div>
 </div>

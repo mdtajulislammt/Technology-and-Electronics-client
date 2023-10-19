@@ -1,6 +1,11 @@
+import { useLoaderData } from "react-router-dom";
 
-const AddProduct = () => {
-     const handleAddProduct=(e)=>{
+
+const UpdateProduct = () => {
+     const product = useLoaderData()
+     console.log(product);
+
+     const handleUpdateProduct=(e)=>{
           e.preventDefault();
           const form = e.target;
           const name = form.name.value;
@@ -14,8 +19,8 @@ const AddProduct = () => {
           console.log(newProduct);
 
            //server 
-     fetch("http://localhost:5000/brand/products",{
-          method:"POST",
+     fetch(`http://localhost:5000/brand/products/${product._id}`,{
+          method:"PUT",
           headers:{
                "Content-Type": "application/json",
           },
@@ -25,11 +30,10 @@ const AddProduct = () => {
      .catch(data=>{
           console.log(data);
      })   
-
-     }
+}
      return (
           <div>
-           <form onSubmit={handleAddProduct}>    
+              <form onSubmit={handleUpdateProduct}>    
 <div className="min-h-screen p-6  bg-gray-100 flex items-center justify-center">
   <div className="container max-w-screen-lg mx-auto">
     <div>
@@ -38,7 +42,7 @@ const AddProduct = () => {
       <div className="bg-[#ff7e00] rounded shadow-lg p-4 px-4 md:p-8 mb-6">
         <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
           <div className="">
-            <p className="font-medium text-xl font-semibold ">Add Product</p>
+            <p className="font-medium text-xl ">Update Product</p>
             <p>Please fill out all the fields.</p>
           </div>
 
@@ -46,45 +50,47 @@ const AddProduct = () => {
             <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
             <div className="md:col-span-5">
                 <label htmlFor="email">Product Name</label>
-                <input type="name" name="name" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"/>
+                <input type="name" defaultValue={product?.name}  name="name" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"/>
               </div>
 
               <div className="md:col-span-5">
                 <label htmlFor="email">Brand Name</label>
-                <input type="text" name="brandname" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"/>
+                <input type="text" defaultValue={product?.brandname}  name="brandname" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"/>
               </div>
 
               <div className="md:col-span-3">
                 <label htmlFor="address">Product Type</label>
-                <input type="text" name="type" id="address" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                <input type="text" defaultValue={product?.type}  name="type" id="address" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
               </div>
 
               <div className="md:col-span-2">
                 <label htmlFor="city">Price</label>
-                <input type="text" name="price" id="city" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"  />
+                <input type="text" defaultValue={product?.price}  name="price" id="city" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"  />
               </div>
 
               <div className="md:col-span-4">
-                <label htmlFor="country">Short description</label>
+                <label htmlFor="state">Image</label>
                 <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                  <input name="description" id="country"className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
+                  <input name="img" defaultValue={product?.img}  id="state"  className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
+                  
                 </div>
               </div>
 
               <div className="md:col-span-1">
                 <label htmlFor="state">Rating</label>
                 <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                  <input name="rating" id="state"  className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
+                  <input name="rating" defaultValue={product?.rating}  id="state"  className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
                   
                 </div>
               </div>
+              
               <div className="md:col-span-5">
-                <label htmlFor="state">Image</label>
-                <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                  <input name="img" id="state"  className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
-                  
+                <label htmlFor="country">Short description</label>
+                <div className=" bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                  <textarea name="description" defaultValue={product?.description}  id="country"className="p-2 h-28 appearance-none outline-none text-gray-800 w-full bg-transparent" />
                 </div>
               </div>
+             
 
       
               <div className="md:col-span-5 text-right">
@@ -102,9 +108,9 @@ const AddProduct = () => {
     
   </div>
 </div>
-          </form>
+          </form> 
           </div>
      );
 };
 
-export default AddProduct;
+export default UpdateProduct;

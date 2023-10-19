@@ -38,7 +38,7 @@ const ProductDetail = () => {
      })
      .then(res=>res.json())
      .catch(data=>{
-          if(data.insertedId){
+          if(data.acknowledged){
                Swal.fire({
                  icon: 'success',
                  title: 'Oops...',
@@ -46,6 +46,7 @@ const ProductDetail = () => {
                })
              }
      })   
+    
      }
 
      
