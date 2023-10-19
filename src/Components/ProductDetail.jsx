@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { Rating } from "@material-tailwind/react";
+import Swal from "sweetalert2";
 
 const ProductDetail = () => {
      const {id} = useParams();
@@ -37,7 +38,13 @@ const ProductDetail = () => {
      })
      .then(res=>res.json())
      .catch(data=>{
-          console.log(data);
+          if(data.insertedId){
+               Swal.fire({
+                 icon: 'success',
+                 title: 'Oops...',
+                 text: 'Product add Successfully!',
+               })
+             }
      })   
      }
 
@@ -46,7 +53,7 @@ const ProductDetail = () => {
           <div className=" mt-10 ">
                <div className="flex justify-between">
                <Link to={`/brand/${brandname}`} className="flex  mb-5 mx-28 px-4 items-center gap-3  bg-[#ff7e00] rounded-md text-white font-medium p-2 "><AiOutlineArrowLeft/> Go back</Link>
-               <Link  onClick={handleAddToCart} className=" flex mb-5 mx-28 items-center text-center gap-3 px-4 bg-[#ff7e00] rounded-md text-white font-medium p-2 ">Add to Cart</Link>
+               <Link  onClick={handleAddToCart} className=" flex mb-5 mx-28 items-center text-center gap-3 px-4 bg-[#ff7e00] hover:text-black rounded-md text-white font-medium p-2 ">Add to Cart</Link>
                </div>
                
           <div  className="  mx-28 bg-[#ff7e00] rounded-xl items-center  p-10">
