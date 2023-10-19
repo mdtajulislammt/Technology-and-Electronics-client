@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Brand = ({ brand }) => {
+const Brand = ({brand }) => {
   const {brandname, img } = brand || {};
 
   return (
@@ -10,7 +10,7 @@ const Brand = ({ brand }) => {
           <img
           className=" w-64  p-10"
             src={img}
-            alt={brandname}
+           
           />
         </figure>
         <div className="card-body">

@@ -9,7 +9,7 @@ const Navbar = () => {
      <li><NavLink to='/addProduct'  className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " text-[#000000] hover:text-[#ffffff]  hover:bg-[#00000000] font-bold  underline" : "font-semibold "
               }>Add Product</NavLink></li>
-     <li><NavLink to='/myCart'  className={({ isActive, isPending }) =>
+     <li><NavLink to='/myCarts'  className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? " text-[#000000] hover:text-[#ffffff]  hover:bg-[#0000002b] font-bold  underline" : "font-semibold "
               }>My Cart</NavLink></li>
      </>

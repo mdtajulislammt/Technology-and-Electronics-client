@@ -14,11 +14,39 @@ const ProductDetail = () => {
           setProduct(findProductData)
 
      },[id,productData])
+
+     const handleAddToCart = ()=>{
+          const newProduct = {
+               name:name,
+               img:img,
+               brandname:brandname,
+               type:type,
+               price:price,
+               rating:rating,
+               description:description
+
+          }
+          console.log(newProduct);
+       //server 
+     fetch("http://localhost:5000/myCarts",{
+          method:"POST",
+          headers:{
+               "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newProduct),
+     })
+     .then(res=>res.json())
+     .catch(data=>{
+          console.log(data);
+     })   
+     }
+
+     
      return (
           <div className=" mt-10 ">
                <div className="flex justify-between">
                <Link to={`/brand/${brandname}`} className="flex  mb-5 mx-28 px-4 items-center gap-3  bg-[#ff7e00] rounded-md text-white font-medium p-2 "><AiOutlineArrowLeft/> Go back</Link>
-               <Link to={`/myCart${_id}`} className=" flex mb-5 mx-28 items-center text-center gap-3 px-4 bg-[#ff7e00] rounded-md text-white font-medium p-2 ">Add to Cart</Link>
+               <Link  onClick={handleAddToCart} className=" flex mb-5 mx-28 items-center text-center gap-3 px-4 bg-[#ff7e00] rounded-md text-white font-medium p-2 ">Add to Cart</Link>
                </div>
                
           <div  className="  mx-28 bg-[#ff7e00] rounded-xl items-center  p-10">
