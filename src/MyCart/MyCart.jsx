@@ -1,4 +1,4 @@
-import { Rating } from "@material-tailwind/react";
+import { Rating } from 'primereact/rating';
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link, useLoaderData } from "react-router-dom";
@@ -32,7 +32,7 @@ const MyCart = () => {
                     if(data.deletedCount>0){
                         Swal.fire(
                           'Deleted!',
-                          'Your Coffee has been deleted.',
+                          'Your Product has been deleted.',
                         'success'
                         )
                         const remaining = updateProduct.filter(item =>item._id !==_id);
@@ -59,7 +59,11 @@ const MyCart = () => {
                <h2 className=" text-[#ff7e00] text-lg font-medium">Brand Name :{myCart.brandname}</h2>
                <p className=" text-xl font-semibold">Price :{myCart.price}</p>
                <p className=" text-[#ff7e00]">Type :{myCart.type}</p>
-               <p className=" flex items-center gap-3 text-lg font-semibold"> <Rating className="text-[#ff7e00] flex " value={4} /> {myCart.rating}</p>
+               
+               <div className="flex items-center gap-3">
+               <Rating className="text-[#ff7e00]" value={myCart.rating} cancel={false} />
+               <p className="  text-lg font-semibold"> {myCart.rating}</p>
+               </div>
                
                </div>
                <div className="card-actions  justify-center mt-3 ">

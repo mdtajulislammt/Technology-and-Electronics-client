@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import { Rating } from "@material-tailwind/react";
+import { Rating } from 'primereact/rating';
 import Swal from "sweetalert2";
 
 const ProductDetail = () => {
      const {id} = useParams();
      const [product, setProduct] = useState({});
      const productData = useLoaderData();
-     const {_id,name,img,brandname,type,price,rating,description} = product || {};
+     const {name,img,brandname,type,price,rating,description} = product || {};
 
      useEffect(()=>{
           const findProductData = productData?.find(productItem =>productItem._id== id)
@@ -37,15 +37,7 @@ const ProductDetail = () => {
           body: JSON.stringify(newProduct),
      })
      .then(res=>res.json())
-     .catch(data=>{
-          if(data.acknowledged){
-               Swal.fire({
-                 icon: 'success',
-                 title: 'Oops...',
-                 text: 'Product add Successfully!',
-               })
-             }
-     })   
+     .catch(data=>console.log(data))   
     
      }
 
@@ -66,7 +58,13 @@ const ProductDetail = () => {
                <p>Brand Name : {brandname}</p>
                <h1 className=" text-xl font-bold"><span>Price :$ </span>{price}</h1>
                <h1 className=" text-lg font-semibold">Type: {type}</h1>
-               <p className=" flex items-center gap-3 text-lg font-semibold"> <Rating className="text-[#ff7e00] flex  my-4" value={rating} /> {rating}</p>
+               <div className="flex items-center gap-3 ">
+                    
+                    <Rating className="text-[#ff7e00] " value={rating}  cancel={false} />
+                    
+                    <p className="  text-lg font-semibold">  {rating}</p>
+               </div>
+               
           </div>
                <p className="mb-3 text-lg font-medium mt-4">{description}</p>
           </div>

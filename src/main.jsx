@@ -14,6 +14,9 @@ import ProductDetail from './Components/ProductDetail';
 import MyCart from './MyCart/MyCart';
 import AddProduct from './AddProduct/AddProduct';
 import UpdateProduct from './UpdateProduct/UpdateProduct';
+import SingUp from './Components/LogIn/SingUp';
+import AuthProvider from './AuthProvider/AuthProvider';
+import PrivedRoute from './PrivedRoute/PrivedRoute';
  
 
  const router = createBrowserRouter([
@@ -34,12 +37,12 @@ import UpdateProduct from './UpdateProduct/UpdateProduct';
     },
     {
       path:"/brand/products/:id",
-      element:<UpdateProduct></UpdateProduct>,
+      element:<PrivedRoute><UpdateProduct></UpdateProduct></PrivedRoute>,
       loader: ({params})=> fetch(`http://localhost:5000/brand/products/${params.id}`)
     },
     {
       path:"/brand/Apple/:id",
-      element:<ProductDetail></ProductDetail>,
+      element:<PrivedRoute><ProductDetail></ProductDetail></PrivedRoute>,
       loader: ()=> fetch('http://localhost:5000/brand/products')
     },
     {
@@ -50,12 +53,16 @@ import UpdateProduct from './UpdateProduct/UpdateProduct';
     },
     {
       path:"/addProduct",
-      element:<AddProduct></AddProduct>,
+      element:<PrivedRoute><AddProduct></AddProduct></PrivedRoute>,
      
     },
     {
       path:'/login',
       element:<LogIn></LogIn>
+    },
+    {
+      path:'/singUp',
+      element:<SingUp></SingUp>
     }
    ]
    },
@@ -64,6 +71,9 @@ import UpdateProduct from './UpdateProduct/UpdateProduct';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+    <RouterProvider router={router} />  
+    </AuthProvider>
+    
   </React.StrictMode>,
 )

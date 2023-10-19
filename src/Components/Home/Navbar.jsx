@@ -1,16 +1,28 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { BiSolidSun } from 'react-icons/bi';
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { CiUser } from 'react-icons/ci';
+import { AiOutlineSetting ,AiOutlineLogout} from 'react-icons/ai';
+import { MdOutlineDashboardCustomize,MdNotificationsActive } from 'react-icons/md';
+
 
 const Navbar = () => {
+
+  const {user,logOut} = useContext(AuthContext)
+   const handleLogOut = ()=>{
+    logOut()
+   }
+
+
      const navLinks = <>
      <li><NavLink to='/'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#000000] hover:text-[#ffffff]  hover:bg-[#00000000] font-bold  underline" : "font-semibold "
+                isPending ? "pending" : isActive ? " text-[#ffffff] hover:text-[#ffffff]  hover:bg-[#00000000] font-bold  underline" : "font-semibold "
               }>Home</NavLink></li>
      <li><NavLink to='/addProduct'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#000000] hover:text-[#ffffff]  hover:bg-[#00000000] font-bold  underline" : "font-semibold "
+                isPending ? "pending" : isActive ? " text-[#ffffff] hover:text-[#ffffff]  hover:bg-[#00000000] font-bold  underline" : "font-semibold "
               }>Add Product</NavLink></li>
      <li><NavLink to='/myCarts'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? " text-[#000000] hover:text-[#ffffff]  hover:bg-[#0000002b] font-bold  underline" : "font-semibold "
+                isPending ? "pending" : isActive ? " text-[#ffffff] hover:text-[#ffffff]  hover:bg-[#0000002b] font-bold  underline" : "font-semibold "
               }>My Cart</NavLink></li>
      </>
      return (
@@ -34,8 +46,35 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to={'/login'} className=" font-bold mr-4">LogIn</Link>
-    <div>
+    {
+      user ?  <div className="dropdown">
+      <label tabIndex={0} className="  ">
+        {
+          user.photoURL? <img src={user.photoURL} className="rounded-full border-2 border-[#00bf73] h-10 w-10" /> : <CiUser className=" cursor-pointer border-2 border-[#00bf73] text-black bg-slate-300 p-1 w-10 h-10 rounded-full"/>
+        }
+      
+      </label>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content right-0 h-72 mt-5 w-52 z-[1] p-3 shadow  border-2 border-[#00bf73]  bg-slate-100  rounded-lg">
+      {
+          user.photoURL? <img src={user.photoURL} className="rounded-full border-2 border-[#00bf73] mx-auto h-10 w-10" /> : <CiUser className=" cursor-pointer text-black bg-slate-300 p-1 w-10 h-10 mx-auto rounded-full"/>
+        }
+      <h2 className=" text-center text-lg font-semibold mt-2">{user.displayName}</h2>
+      <button className=" bg-[#00bf73] p-1 rounded-lg text-white my-2">View Profile</button>
+      <div className=" border-t-2">
+        <h2 className=" flex items-center gap-2 my-3 cursor-pointer text-black"><MdOutlineDashboardCustomize/> <span className="  hover:text-[#00bf73]">Dashboard</span></h2>
+        <h2 className=" flex items-center gap-2 my-3 cursor-pointer text-black"><MdNotificationsActive/> <span className="  hover:text-[#00bf73]">Notifications</span></h2>
+        <h2 className=" flex items-center gap-2 my-3 cursor-pointer text-black"><AiOutlineSetting/> <span className="  hover:text-[#00bf73]">User Settings</span></h2>
+       <button onClick={handleLogOut} className=" flex items-center gap-2 my-2 cursor-pointer text-b lack"><AiOutlineLogout/> <span className="  hover:text-[#00bf73]">LogOut</span></button>
+      </div>
+      
+      </ul>
+    </div>
+      :<NavLink to='/login'  className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? " text-[#ffffff] hover:text-[#ffffff]  hover:bg-[#00000000] font-bold  underline" : "font-semibold "
+              }>LogIn</NavLink>
+    }
+    
+    <div className=" ml-4">
     <label className="swap swap-rotate">
   
   {/* this hidden checkbox controls the state */}

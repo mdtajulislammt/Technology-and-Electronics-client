@@ -1,6 +1,7 @@
 import { Rating } from "@material-tailwind/react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const BrandProduct = ({ products }) => {
   return (
@@ -74,4 +75,9 @@ const BrandProduct = ({ products }) => {
   );
 };
 
+BrandProduct.propTypes = {
+
+  products: PropTypes.node,
+  }
+  
 export default BrandProduct;

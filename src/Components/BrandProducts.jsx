@@ -6,11 +6,13 @@ const BrandProducts = () => {
   const { brandname } = useParams();
   const [products, setProducts] = useState({});
   const brandProducts = useLoaderData();
+ 
 
   useEffect(() => {
     const findProductData = brandProducts?.filter(
-      (product) => product.brandname == brandname
+      (product) => product.brandname.toLowerCase() === brandname.toLowerCase()
     );
+    
     setProducts(findProductData);
   }, [brandname, brandProducts]);
   return (
