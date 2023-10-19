@@ -37,7 +37,18 @@ const ProductDetail = () => {
           body: JSON.stringify(newProduct),
      })
      .then(res=>res.json())
-     .catch(data=>console.log(data))   
+     .then(data=>{
+          if(data.insertedId){
+             Swal.fire({
+               position: 'center',
+               icon: 'success',
+               title: 'Product Added Success',
+               showConfirmButton: false,
+               timer: 1500
+             })  
+          }
+          
+     })   
     
      }
 

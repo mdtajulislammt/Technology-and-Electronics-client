@@ -47,7 +47,7 @@ import PrivedRoute from './PrivedRoute/PrivedRoute';
     },
     {
       path:"/myCarts",
-      element:<MyCart></MyCart>,
+      element:<PrivedRoute><MyCart></MyCart></PrivedRoute>,
       loader: ()=> fetch(`http://localhost:5000/myCarts`)
      
     },

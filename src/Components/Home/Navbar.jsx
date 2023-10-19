@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { CiUser } from 'react-icons/ci';
+import { CgProfile } from 'react-icons/cg';
 import { AiOutlineSetting ,AiOutlineLogout} from 'react-icons/ai';
 import { MdOutlineDashboardCustomize,MdNotificationsActive } from 'react-icons/md';
 
@@ -50,21 +51,21 @@ const Navbar = () => {
       user ?  <div className="dropdown">
       <label tabIndex={0} className="  ">
         {
-          user.photoURL? <img src={user.photoURL} className="rounded-full border-2 border-[#00bf73] h-10 w-10" /> : <CiUser className=" cursor-pointer border-2 border-[#00bf73] text-black bg-slate-300 p-1 w-10 h-10 rounded-full"/>
+          user.photoURL? <img src={user.photoURL} className="rounded-full border-2 border-[#ffffff] h-10 w-10" /> : <CiUser className=" cursor-pointer border-2 border-[#ff7e00] text-black bg-slate-300 p-1 w-10 h-10 rounded-full"/>
         }
       
       </label>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content right-0 h-72 mt-5 w-52 z-[1] p-3 shadow  border-2 border-[#00bf73]  bg-slate-100  rounded-lg">
+      <ul tabIndex={0} className="menu menu-sm dropdown-content right-0 h-96 mt-5 w-80 z-[1] p-3 shadow border-2 border-[#ff7e00]  bg-slate-100  rounded-lg">
       {
-          user.photoURL? <img src={user.photoURL} className="rounded-full border-2 border-[#00bf73] mx-auto h-10 w-10" /> : <CiUser className=" cursor-pointer text-black bg-slate-300 p-1 w-10 h-10 mx-auto rounded-full"/>
+          user.photoURL? <img src={user.photoURL} className="rounded-full border-2 border-[#ff7e00] mx-auto h-10 w-10" /> : <CiUser className=" cursor-pointer text-black bg-slate-300 p-1 w-10 h-10 mx-auto rounded-full"/>
         }
       <h2 className=" text-center text-lg font-semibold mt-2">{user.displayName}</h2>
-      <button className=" bg-[#00bf73] p-1 rounded-lg text-white my-2">View Profile</button>
-      <div className=" border-t-2">
-        <h2 className=" flex items-center gap-2 my-3 cursor-pointer text-black"><MdOutlineDashboardCustomize/> <span className="  hover:text-[#00bf73]">Dashboard</span></h2>
-        <h2 className=" flex items-center gap-2 my-3 cursor-pointer text-black"><MdNotificationsActive/> <span className="  hover:text-[#00bf73]">Notifications</span></h2>
-        <h2 className=" flex items-center gap-2 my-3 cursor-pointer text-black"><AiOutlineSetting/> <span className="  hover:text-[#00bf73]">User Settings</span></h2>
-       <button onClick={handleLogOut} className=" flex items-center gap-2 my-2 cursor-pointer text-b lack"><AiOutlineLogout/> <span className="  hover:text-[#00bf73]">LogOut</span></button>
+      <div className=" border-t-2 my-2">
+        <h2 className=" flex bg-[#ff8000af] hover:bg-[#ff7e00] p-2 rounded-lg text-black items-center gap-2 my-3 cursor-pointer "><CgProfile/> <span className="  hover:text-[#ffffff]">Profile</span></h2>
+        <h2 className=" flex bg-[#ff8000af] hover:bg-[#ff7e00] p-2 rounded-lg text-black items-center gap-2 my-3 cursor-pointer "><MdOutlineDashboardCustomize/> <span className="  hover:text-[#ffffff]">Dashboard</span></h2>
+        <h2 className=" flex bg-[#ff8000af] hover:bg-[#ff7e00] p-2 rounded-lg text-black items-center gap-2 my-3 cursor-pointer "><MdNotificationsActive/> <span className="  hover:text-[#ffffff]">Notifications</span></h2>
+        <h2 className=" flex bg-[#ff8000af] hover:bg-[#ff7e00] p-2 rounded-lg text-black items-center gap-2 my-3 cursor-pointer "><AiOutlineSetting/> <span className="  hover:text-[#ffffff]">User Settings</span></h2>
+       <button onClick={handleLogOut} className=" flex bg-[#ff8000af] hover:bg-[#ff7e00] w-full p-2 rounded-lg text-black items-center  gap-2 my-2 cursor-pointer text-b lack"><AiOutlineLogout/> <span className="  hover:text-[#ffffff]">LogOut</span></button>
       </div>
       
       </ul>

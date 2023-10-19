@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const UpdateProduct = () => {
@@ -16,7 +17,6 @@ const UpdateProduct = () => {
           const rating = form.rating.value;
           const img = form.img.value;
           const newProduct = {name,brandname,type,price,description,rating,img}
-          console.log(newProduct);
 
            //server 
      fetch(`http://localhost:5000/brand/products/${product._id}`,{
@@ -27,8 +27,17 @@ const UpdateProduct = () => {
           body: JSON.stringify(newProduct),
      })
      .then(res=>res.json())
-     .catch(data=>{
-          console.log(data);
+     .then(data=> {
+      if(data.matchedCount){
+         Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Product Added Success',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      }
+     
      })   
 }
      return (
@@ -95,7 +104,7 @@ const UpdateProduct = () => {
       
               <div className="md:col-span-5 text-right">
                 <div className="inline-flex items-end">
-                  <button className="bg-white hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded">Add</button>
+                  <button className="bg-white hover:bg-black text-black hover:text-white font-bold py-2 px-4 rounded">Submit</button>
                 </div>
               </div>
 

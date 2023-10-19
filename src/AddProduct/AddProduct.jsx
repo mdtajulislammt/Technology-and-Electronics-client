@@ -22,7 +22,7 @@ const AddProduct = () => {
           body: JSON.stringify(newProduct),
      })
      .then(res=>res.json())
-     .catch(data=>{
+     .then(data=>{
           console.log(data);
      })   
 
