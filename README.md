@@ -2,9 +2,9 @@
 
 ### The features of the project are:
 
-```
+**
 My website is Technology and Electronics About this website From this website you will find many types of Technology and Electronics items You can buy and sell these products etc...First visiting the website has an attractive homepage, this homepage has some popular brands and you will find items of each category.
-```
+**
 - There are six popular brands, each of which has its own brand of products
 
 - By clicking on any one of those bands, you will get the items or products of that brand and by clicking on any of the items, you will get the details.
