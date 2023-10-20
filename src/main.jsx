@@ -30,28 +30,28 @@ import PrivedRoute from './PrivedRoute/PrivedRoute';
     {
       path: "/",
        element:<Home></Home>,
-       loader: ()=> fetch('http://localhost:5000/brand')
+       loader: ()=> fetch('https://technology-and-electronics-server-5y2vicyzi.vercel.app/brand')
     },
     {
       path: "/brand/:brandname",
        element:<BrandProducts></BrandProducts>,
-       loader: ()=> fetch('http://localhost:5000/brand/products')
+       loader: ()=> fetch('https://technology-and-electronics-server-5y2vicyzi.vercel.app/brand/products')
     },
     {
       path:"/brand/products/:id",
       element:<PrivedRoute><UpdateProduct></UpdateProduct></PrivedRoute>,
-      loader: ({params})=> fetch(`http://localhost:5000/brand/products/${params.id}`)
+      loader: ({params})=> fetch(`https://technology-and-electronics-server-5y2vicyzi.vercel.app/brand/products/${params.id}`)
     },
     {
       path:"/brand/Apple/:id",
       element:<PrivedRoute><ProductDetail></ProductDetail></PrivedRoute>,
-      loader: ()=> fetch('http://localhost:5000/brand/products')
+      loader: ()=> fetch('https://technology-and-electronics-server-5y2vicyzi.vercel.app/brand/products')
     },
    
     {
       path:"/myCarts",
       element:<PrivedRoute><MyCart></MyCart></PrivedRoute>,
-      loader: ()=> fetch(`http://localhost:5000/myCarts`)
+      loader: ()=> fetch(`https://technology-and-electronics-server-5y2vicyzi.vercel.app/myCarts`)
      
     },
     {

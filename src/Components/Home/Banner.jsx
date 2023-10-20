@@ -3,7 +3,7 @@ const Banner = () => {
     <div className="mb-28 ">
       <div>
         <img
-          className="  w-full h-[50vh] md:h-[70vh] lg:h-full border"
+          className="  w-full h-[45vh] md:h-[70vh] lg:h-full border"
           src="https://i.ibb.co/SVYFpB4/ezgif-com-webp-to-jpg.jpg"
           alt=""
         />

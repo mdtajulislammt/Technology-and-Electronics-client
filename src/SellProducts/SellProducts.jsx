@@ -5,7 +5,7 @@ const SellProducts = () => {
      const sellProducts = useLoaderData()
      console.log(sellProducts);
   return (
-    <div className="dark:bg-black  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 px-16">
+    <div className="dark:bg-black  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4  lg:px-16">
      {
      sellProducts?.map(sellProduct =>
         <>

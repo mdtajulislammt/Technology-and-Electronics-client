@@ -28,7 +28,7 @@ const BrandProducts = () => {
         <div className="container">
           <div className="flex -mx-4">
             <div className="w-full px-4">
-              <div className="mx-auto max-w-[500px] text-center">
+              <div className="mx-auto  text-center">
                 
                 <h4 className="mb-3 text-[30px] font-semibold leading-tight text-white">
                   Oops! Data can not be found 
