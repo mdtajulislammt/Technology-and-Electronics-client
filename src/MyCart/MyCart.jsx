@@ -21,7 +21,7 @@ const MyCart = () => {
              }).then((result) => {
                if (result.isConfirmed) {
              
-               fetch(`https://technology-and-electronics-server-5y2vicyzi.vercel.app/myCarts/${_id}`,{
+               fetch(`https://technology-and-electronics-server-fi63glszc.vercel.app/myCarts/${_id}`,{
                     method: 'DELETE'
                   
    

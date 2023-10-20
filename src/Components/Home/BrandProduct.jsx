@@ -56,7 +56,7 @@ const BrandProduct = ({ products }) => {
     
     <h2 className="card-title text-[#ff7e00] text-lg">{productItem.name}</h2>
     <h2 className=" text-[#ff7e00] text-lg font-medium">Brand Name :{productItem.brandname}</h2>
-    <p className=" text-md font-semibold dark:text-white">Price :{productItem.price}</p>
+    <p className=" text-md font-semibold dark:text-white">Price :$ {productItem.price}</p>
     <p className=" text-[#ff7e00]">Type :{productItem.type}</p>
     <p className=" flex items-center dark:text-white gap-3 text-lg font-semibold"> <Rating className="text-[#ff7e00]   " value={4} /> {productItem.rating}</p>
     

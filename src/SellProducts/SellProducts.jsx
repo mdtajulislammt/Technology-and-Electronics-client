@@ -18,7 +18,7 @@ const SellProducts = () => {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{sellProduct.title}</h2>
+              <h2 className=" text-lg font-semibold">{sellProduct.title}</h2>
              
             </div>
           </div>

@@ -15,7 +15,7 @@ const AddProduct = () => {
           console.log(newProduct);
 
            //server 
-     fetch("https://technology-and-electronics-server-5y2vicyzi.vercel.app/brand/products",{
+     fetch("https://technology-and-electronics-server-fi63glszc.vercel.app/brand/products",{
           method:"POST",
           headers:{
                "Content-Type": "application/json",
@@ -30,6 +30,7 @@ const AddProduct = () => {
         'Your Product Add Successfully.',
       'success'
       )
+      form.reset()
       }
       
      })   

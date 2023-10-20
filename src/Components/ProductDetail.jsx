@@ -29,7 +29,7 @@ const ProductDetail = () => {
           }
           console.log(newProduct);
        //server 
-     fetch("https://technology-and-electronics-server-5y2vicyzi.vercel.app/myCarts",{
+     fetch("https://technology-and-electronics-server-fi63glszc.vercel.app/myCarts",{
           method:"POST",
           headers:{
                "Content-Type": "application/json",
