@@ -30,7 +30,7 @@ const AddProduct = () => {
      return (
           <div>
            <form onSubmit={handleAddProduct}>    
-<div className="min-h-screen p-6  bg-gray-100 flex items-center justify-center">
+<div className="min-h-screen p-6  bg-gray-100 dark:bg-black flex items-center justify-center">
   <div className="container max-w-screen-lg mx-auto">
     <div>
      

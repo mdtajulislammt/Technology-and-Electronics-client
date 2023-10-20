@@ -43,7 +43,7 @@ const UpdateProduct = () => {
      return (
           <div>
               <form onSubmit={handleUpdateProduct}>    
-<div className="min-h-screen p-6  bg-gray-100 flex items-center justify-center">
+<div className="min-h-screen p-6 dark:bg-black bg-gray-100 flex items-center justify-center">
   <div className="container max-w-screen-lg mx-auto">
     <div>
      

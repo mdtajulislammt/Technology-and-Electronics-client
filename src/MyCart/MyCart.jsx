@@ -45,24 +45,24 @@ const MyCart = () => {
          
      }
      return (
-          <div>
+          <div className=' dark:bg-black'>
                {
-                    updateProduct.length > 0 ? (<div className=" grid md:grid-cols-3 lg:grid-cols-4 mx-14 mt-10 gap-5">
+                    updateProduct.length > 0 ? (<div className=" grid md:grid-cols-3 lg:grid-cols-4 mx-14 pt-10 gap-5">
                     {
                          updateProduct?.map((myCart) =><>
                <div className="card  bg-[#ff7e00] shadow-xl">
-               <Link><button onClick={()=>handleDelete(myCart._id)} className="bg-[#ff7e00] border rounded-full  relative -top-4 -ml-3  text-black hover:text-white px-3 p-2 font-semibold hover:bg-[#000000] w-10 h-10"><AiOutlineClose/></button></Link>
+               <Link><button onClick={()=>handleDelete(myCart._id)} className="bg-[#ff7e00]  border rounded-full  relative -top-4 -ml-3  text-black hover:text-white px-3 p-2 font-semibold hover:bg-[#000000] w-10 h-10"><AiOutlineClose/></button></Link>
                <figure className="p-4" ><img className=" w-full md:h-32 lg:h-52 rounded-lg" src={myCart.img}  alt={myCart.name} /></figure>
-               <div className="p-4 border-2 rounded-xl border-[#ff7e00] bg-white">
+               <div className="p-4 dark:bg-black border-2 rounded-xl border-[#ff7e00] bg-white">
                
-               <h2 className="card-title text-[#ff7e00] text-2xl">{myCart.name}</h2>
+               <h2 className="card-title text-[#ff7e00] text-lg">{myCart.name}</h2>
                <h2 className=" text-[#ff7e00] text-lg font-medium">Brand Name :{myCart.brandname}</h2>
-               <p className=" text-xl font-semibold">Price :{myCart.price}</p>
+               <p className=" text-xl dark:text-white font-semibold">Price :{myCart.price}</p>
                <p className=" text-[#ff7e00]">Type :{myCart.type}</p>
                
                <div className="flex items-center gap-3">
                <Rating className="text-[#ff7e00]" value={myCart.rating} cancel={false} />
-               <p className="  text-lg font-semibold"> {myCart.rating}</p>
+               <p className="  text-lg font-semibold dark:text-white"> {myCart.rating}</p>
                </div>
                
                </div>

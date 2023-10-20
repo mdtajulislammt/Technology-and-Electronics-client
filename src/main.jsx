@@ -17,6 +17,7 @@ import UpdateProduct from './UpdateProduct/UpdateProduct';
 import SingUp from './Components/LogIn/SingUp';
 import AuthProvider from './AuthProvider/AuthProvider';
 import PrivedRoute from './PrivedRoute/PrivedRoute';
+
  
 
  const router = createBrowserRouter([
@@ -24,6 +25,7 @@ import PrivedRoute from './PrivedRoute/PrivedRoute';
   path: "/",
   errorElement:<ErrorPage></ErrorPage>,
    element:<Root></Root>,
+   loader: ()=> fetch('/sellProducts.json'),
    children:[
     {
       path: "/",
@@ -45,6 +47,7 @@ import PrivedRoute from './PrivedRoute/PrivedRoute';
       element:<PrivedRoute><ProductDetail></ProductDetail></PrivedRoute>,
       loader: ()=> fetch('http://localhost:5000/brand/products')
     },
+   
     {
       path:"/myCarts",
       element:<PrivedRoute><MyCart></MyCart></PrivedRoute>,
