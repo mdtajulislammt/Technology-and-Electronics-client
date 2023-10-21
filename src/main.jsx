@@ -30,28 +30,28 @@ import PrivedRoute from './PrivedRoute/PrivedRoute';
     {
       path: "/",
        element:<Home></Home>,
-       loader: ()=> fetch('https://technology-and-electronics-server-fi63glszc.vercel.app/brand')
+       loader: ()=> fetch('https://technology-and-electronics-server-a79lbuqf1.vercel.app/brand')
     },
     {
       path: "/brand/:brandname",
        element:<BrandProducts></BrandProducts>,
-       loader: ()=> fetch('https://technology-and-electronics-server-fi63glszc.vercel.app/brand/products')
+       loader: ()=> fetch('https://technology-and-electronics-server-a79lbuqf1.vercel.app/brand/products')
     },
     {
       path:"/brand/products/:id",
       element:<PrivedRoute><UpdateProduct></UpdateProduct></PrivedRoute>,
-      loader: ({params})=> fetch(`https://technology-and-electronics-server-fi63glszc.vercel.app/brand/products/${params.id}`)
+      loader: ({params})=> fetch(`https://technology-and-electronics-server-a79lbuqf1.vercel.app/brand/products/${params.id}`)
     },
     {
       path:"/brand/Apple/:id",
       element:<PrivedRoute><ProductDetail></ProductDetail></PrivedRoute>,
-      loader: ()=> fetch('https://technology-and-electronics-server-fi63glszc.vercel.app/brand/products')
+      loader: ()=> fetch('https://technology-and-electronics-server-a79lbuqf1.vercel.app/brand/products')
     },
    
     {
       path:"/myCarts",
       element:<PrivedRoute><MyCart></MyCart></PrivedRoute>,
-      loader: ()=> fetch(`https://technology-and-electronics-server-fi63glszc.vercel.app/myCarts`)
+      loader: ()=> fetch(`https://technology-and-electronics-server-a79lbuqf1.vercel.app/myCarts`)
      
     },
     {
