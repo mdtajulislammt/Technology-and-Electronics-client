@@ -54,13 +54,13 @@ const ProductDetail = () => {
 
      
      return (
-          <div className=" pt-10 dark:bg-black ">
+          <div className=" pt-10 dark:bg-black px-5  lg:px-28">
                <div className="flex justify-between">
-               <Link to={`/brand/${brandname}`} className="flex  mb-5 mx-28 px-4 items-center gap-3  bg-[#ff7e00] rounded-md text-white font-medium p-2 "><AiOutlineArrowLeft/> Go back</Link>
-               <Link  onClick={handleAddToCart} className=" flex mb-5 mx-28 items-center text-center gap-3 px-4 bg-[#ff7e00] hover:text-black rounded-md text-white font-medium p-2 ">Add to Cart</Link>
+               <Link to={`/brand/${brandname}`} className="flex  mb-5  px-4 items-center gap-3  bg-[#ff7e00] rounded-md text-white font-medium p-2 "><AiOutlineArrowLeft/> Go back</Link>
+               <Link  onClick={handleAddToCart} className=" flex mb-5  items-center text-center gap-3 px-4 bg-[#ff7e00] hover:text-black rounded-md text-white font-medium p-2 ">Add to Cart</Link>
                </div>
                
-          <div  className="  mx-28 bg-[#ff7e00] rounded-xl items-center  p-10">
+          <div  className="   bg-[#ff7e00] rounded-xl items-center  p-10">
           <img className="object-cover w-full  h-full lg:h-96 rounded-xl" src={img} alt=""/>
           
           <div className="flex dark:bg-black dark:text-white flex-col bg-white mt-4 rounded-xl justify-between p-4 leading-normal">
