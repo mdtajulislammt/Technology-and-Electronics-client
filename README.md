@@ -1,5 +1,7 @@
 ## Live Link :  https://limupa-dfa4f.web.app/
 
+Technology : React.js, Node.js, MongoDB, Express, Firebase, Tailwind.
+
 ### The features of the project are:
 
 **
